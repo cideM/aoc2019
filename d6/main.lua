@@ -1,4 +1,4 @@
--- Completed in 47m44s07
+-- Completed in 47m44s07 (original implementation used Disjktra)
 
 local GRAPH, P1 = {}, 0
 for line in io.lines() do
@@ -24,44 +24,22 @@ for k in pairs(GRAPH) do
 	end
 end
 
-local function dijkstra(graph, source, target)
-	local dist, q, qlen = {}, {}, 0
-	for v in pairs(graph) do
-		dist[v] = math.maxinteger
-		qlen = qlen + 1
-		q[v] = true
+-- BFS update all distances
+local seen, q, dist = {}, { "YOU" }, { YOU = 0 }
+while #q > 0 do
+	local v = table.remove(q, 1)
+	-- unvisited neighbours
+	local n = GRAPH[v]
+	if n.orbits then
+		table.insert(q, n.orbits)
+		seen[n.orbits], dist[n.orbits] = true, dist[v] + 1
 	end
-	dist[source] = 0
-
-	while qlen > 0 do
-		-- unvisited node with minimum distance
-		local u, mindist = nil, math.maxinteger
-		for k in pairs(q) do -- no motivation for heap
-			if dist[k] < mindist then
-				u, mindist = k, dist[k]
-			end
-		end
-		assert(u, "mindist node can't be nil")
-		if u == target then
-			return dist[u]
-		end
-		q[u], qlen = nil, qlen - 1
-
-		-- unvisited neighbours
-		local n = graph[u]
-		local adjacent = { n.orbits }
-		for k in pairs(n.orbited) do
-			if q[k] then
-				table.insert(adjacent, k)
-			end
-		end
-
-		for _, k in ipairs(adjacent) do
-			local alt = dist[u] + 1
-			dist[k] = alt < dist[k] and alt or dist[k]
+	for k in pairs(n.orbited) do
+		if not seen[k] then
+			table.insert(q, k)
+			seen[k], dist[k] = true, dist[v] + 1
 		end
 	end
 end
-
-P2 = dijkstra(GRAPH, GRAPH.YOU.orbits, "SAN") - 1
+P2 = dist.SAN - 2
 print(P1, P2)
