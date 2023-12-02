@@ -1,15 +1,15 @@
-# :christmas_tree: Advent of Code 2017 :santa:
+# :christmas_tree: Advent of Code 2019 :santa:
 
-## Progress (6/25)
+## Progress (0/25)
 
 |     | Lua    |
 | --- | ------ |
-| 1   | :bell: |
-| 2   | :bell: |
-| 3   | :bell: |
-| 4   | :bell:  |
-| 5   | :bell:  |
-| 6   | :bell:  |
+| 1   | :zzz: |
+| 2   | :zzz: |
+| 3   | :zzz: |
+| 4   | :zzz:  |
+| 5   | :zzz:  |
+| 6   | :zzz:  |
 | 7   | :zzz:  |
 | 8   | :zzz:  |
 | 9   | :zzz:  |
@@ -48,7 +48,7 @@ $ cat code | sed 's/^/    /' | pbcopy
 
 60 lines of code according to `tokei` when formatted with `stylua`.
 
-- [GitHub Repository](https://github.com/cideM/aoc2017)
+- [GitHub Repository](https://github.com/cideM/aoc2019)
 - [Topaz Paste]()
 ```
 

@@ -1,5 +1,5 @@
 {
-  description = "Nix Flake template using the 'nixpkgs-unstable' branch and 'flake-utils'";
+  description = "Advent of Code 2019 in Lua";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -19,7 +19,11 @@
             coreutils
             moreutils
             jq
+            alejandra
             lua5_4
+            stylua
+            nodePackages.prettier
+            lua-language-server
           ];
         };
       }
