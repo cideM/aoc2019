@@ -3,7 +3,7 @@
 ## Quickstart
 
 ```shell
-$ fd . --no-hidden | entr -c -s 'lua d6/main.lua < d6/input.txt'
+$ fd . --no-hidden --no-ignore | entr -c -s 'lua d6/main.lua < d6/input.txt'
 ```
 
 ## Progress (1/25)
